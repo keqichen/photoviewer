@@ -14,15 +14,18 @@ export function ImageSelector() {
         }
     }
 
-
     const jsxElement = [];
     for (let i = 0; i < urls.length; i++) {
         jsxElement.push(<img className="thumbnail-image" src={urls[i]}></img>)
     }
 
-    return (<div className="selector-image">
+    return (
+    <>
+    <h2>Select your photo</h2>
+    <div className="selector-image">
         {jsxElement}
-    </div>)
-
+    </div>
+    </>
+    )
 
 }
