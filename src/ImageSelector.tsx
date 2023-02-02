@@ -2,7 +2,10 @@ import React from "react";  // import React (to provide access to TSX)
 
 import './ImageSelector.css'
 
-export function ImageSelector() {
+export function ImageSelector(props: {
+    setState: React.Dispatch<React.SetStateAction<string>>,
+    image: string
+}) {
     const urls = [];
     const brokenImages = [
         1, 24, 32, 36, 44, 47
@@ -15,7 +18,7 @@ export function ImageSelector() {
         }
     }
 
-    const [image, setImage] = React.useState("");
+    // const [image, setImage] = React.useState("");
 
     const jsxElement = [];
     for (let i = 0; i < urls.length; i++) {
@@ -24,14 +27,14 @@ export function ImageSelector() {
             <img className="thumbnail-image"
                 src={urls[i]}
                 onClick={function () {
-                    setImage(newUrl);
+                    props.setState(newUrl);
                 }}>
             </img>)
     }
 
     // update the img id in the jsxElement array;
     for (let i = 0; i < jsxElement.length; i++) {
-        if (urls[i] === image) {
+        if (urls[i] === props.image) {
             jsxElement[i] = <img className="thumbnail-image"
                 id="thumbnail-image-selected" src={urls[i]}></img>
         }
@@ -41,7 +44,6 @@ export function ImageSelector() {
 
     return (
         <>
-            <div>{image}</div>
             <h2>Select your photo</h2>
             <div className="selector-image">
                 {jsxElement}
