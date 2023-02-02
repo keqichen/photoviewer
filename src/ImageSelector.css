@@ -2,11 +2,15 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(10, 1fr);
-    gap:8px;
+    gap: 12px;
 }
 
 .thumbnail-image {
     width: 100%;
     height: auto;
     cursor: pointer;
+}
+
+#thumbnail-image-selected {
+    border: solid 5px rgb(65, 162, 165);
 }
