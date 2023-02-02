@@ -14,33 +14,22 @@ export function ImageSelector(props: {
     for (let i = 0; i < 50; i++) {
         if (!brokenImages.includes(i)) {
             const imageNumberString = i.toString().padStart(2, '0');
-            urls.push(`https://picsum.photos/id/6${imageNumberString}/1600/1600.jpg`)
+            urls.push(`https://picsum.photos/id/6${imageNumberString}/600/600.jpg`)
         }
     }
 
-    // const [image, setImage] = React.useState("");
 
     const jsxElement = [];
     for (let i = 0; i < urls.length; i++) {
         const newUrl = urls[i];
         jsxElement.push(
-            <img className="thumbnail-image"
+            <img className={newUrl === props.image ? "thumbnail-image-selected thumbnail-image" : "thumbnail-image"}
                 src={urls[i]}
                 onClick={function () {
                     props.setState(newUrl);
                 }}>
             </img>)
     }
-
-    // update the img id in the jsxElement array;
-    for (let i = 0; i < jsxElement.length; i++) {
-        if (urls[i] === props.image) {
-            jsxElement[i] = <img className="thumbnail-image"
-                id="thumbnail-image-selected" src={urls[i]}></img>
-        }
-    }
-
-
 
     return (
         <>

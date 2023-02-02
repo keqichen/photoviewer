@@ -11,6 +11,6 @@
     cursor: pointer;
 }
 
-#thumbnail-image-selected {
+.thumbnail-image-selected {
     border: solid 5px rgb(65, 162, 165);
 }
