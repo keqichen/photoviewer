@@ -5,7 +5,7 @@ export function PhotoViewer(props: PhotoUrl) {    // declare and export new func
 
     return (
         <div className="image-wrapper">
-            <img className="image" src={props.imgUrl} alt="this is a image"></img>
+            <img className="image" src={props.imgUrl} alt="this is an image"></img>
 
         </div>
     );

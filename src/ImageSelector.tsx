@@ -24,6 +24,7 @@ export function ImageSelector(props: {
         const newUrl = urls[i];
         jsxElement.push(
             <img className={newUrl === props.image ? "thumbnail-image-selected thumbnail-image" : "thumbnail-image"}
+                data-testid={newUrl === "https://picsum.photos/id/602/600/600.jpg" ? "selected-element" : ""}
                 key={i}
                 src={urls[i]}
                 onClick={function () {
