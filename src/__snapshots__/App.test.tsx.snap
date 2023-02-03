@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="image-wrapper"
+>
+  <img
+    alt="this is a image"
+    className="image"
+    src="https://picsum.photos/id/600/600/600.jpg"
+  />
+</div>
+`;

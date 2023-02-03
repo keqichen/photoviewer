@@ -1,9 +1,51 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import App from './App';
+import { ImageSelector } from './ImageSelector';
+import { PhotoViewer } from './photoviewer/PhotoViewer';
+import { render, screen } from '@testing-library/react';
+import * as renderer from 'react-test-renderer';
 
-test('renders Hello world text', () => {
+test('renders React text', () => {
     const { getByText } = render(<App />);
     const textElement = getByText(/React/i);
     expect(textElement).toBeInTheDocument();
 });
+
+//A unit test to check our imageUrl generation code - 
+// for me, this might check that the first link is 
+// what I expect and that it doesn’t include the ‘broken’ images.
+
+test('renders and checks PhotoViewer', () => {
+
+    render(<PhotoViewer imgUrl={'https://picsum.photos/id/600/600/600.jpg'} />);
+    const image = screen.getByRole("img")
+    expect(image).toHaveAttribute('src', 'https://picsum.photos/id/600/600/600.jpg')
+
+});
+
+
+test('Check first image equal to what we are expecting', () => {
+    render(<App />);
+    const image = screen.getAllByRole('img')[0];
+    expect(image).toHaveAttribute('src', 'https://picsum.photos/id/600/600/600.jpg')
+});
+
+
+//A ‘Regression / Snapshot' test 
+//to confirm that I the ‘ImageViewer' component 
+//doesn’t accidentally change in the future.
+
+
+it('renders correctly', async () => {
+    const tree = renderer.create(<PhotoViewer imgUrl={'https://picsum.photos/id/600/600/600.jpg'} />).toJSON();
+    expect(tree).toMatchSnapshot();
+});
+
+
+/*
+
+describe("My Component", () => {    
+    it("Should match snapshot without name prop", async () => {       
+    const tree = renderer.create(<MyComponent/>).toJSON();                
+    expect(tree).toMatchSnapshot();    });
+*/
