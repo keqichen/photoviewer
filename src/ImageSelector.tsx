@@ -24,6 +24,7 @@ export function ImageSelector(props: {
         const newUrl = urls[i];
         jsxElement.push(
             <img className={newUrl === props.image ? "thumbnail-image-selected thumbnail-image" : "thumbnail-image"}
+                key={i}
                 src={urls[i]}
                 onClick={function () {
                     props.setState(newUrl);
