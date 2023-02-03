@@ -10,6 +10,8 @@ function App() {
 
   const [image, setImage] = useState("https://picsum.photos/id/600/600/600.jpg");
 
+  console.log(setImage);
+
   return (
     <div>
       <h1>React Photo Viewer</h1>

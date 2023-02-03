@@ -58,11 +58,14 @@ describe("My Component", () => {
 // and the ImageViewer updates with the new image.
 
 describe("My Component", () => {
-    it("Should say hello world when no name", async () => {
-        const component = render(<ImageSelector />); 
+    it("should become selected", async () => {
+        const component = render(<ImageSelector setState={React.Dispatch<React.SetStateAction<"https://picsum.photos/id/602/600/600.jpg">>} image="https://picsum.photos/id/600/600/600.jpg" />); 
         await wait(() => component.getByText("Hello World!"));});
         
-    it("Should say hello {name} when given a name", async () => {
+    it("should update the image in the PhotoViewer", async () => {
         const component = render(<PhotoViewer imgUrl=''/>);
         await wait(() => component.getByText("Hello Mike!"));});
 });
+
+// React.Dispatch<React.SetStateAction<"https://picsum.photos/id/602/600/600.jpg">>
+// React.Dispatch<React.SetStateAction<"https://picsum.photos/id/602/600/600.jpg">>
