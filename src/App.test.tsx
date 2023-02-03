@@ -20,7 +20,6 @@ test('renders and checks PhotoViewer', () => {
     render(<PhotoViewer imgUrl={'https://picsum.photos/id/600/600/600.jpg'} />);
     const image = screen.getByRole("img")
     expect(image).toHaveAttribute('src', 'https://picsum.photos/id/600/600/600.jpg')
-
 });
 
 
@@ -41,11 +40,29 @@ it('renders correctly', async () => {
     expect(tree).toMatchSnapshot();
 });
 
+it('renders correctly2', async () => {
+    const tree = renderer.create(<App />).toJSON();
+    expect(tree).toMatchSnapshot();
+});
 
 /*
-
 describe("My Component", () => {    
     it("Should match snapshot without name prop", async () => {       
     const tree = renderer.create(<MyComponent/>).toJSON();                
     expect(tree).toMatchSnapshot();    });
 */
+
+// A Component Test 
+// to confirm that when I click a thumbnail
+// then the thumbnail becomes selected 
+// and the ImageViewer updates with the new image.
+
+describe("My Component", () => {
+    it("Should say hello world when no name", async () => {
+        const component = render(<ImageSelector />); 
+        await wait(() => component.getByText("Hello World!"));});
+        
+    it("Should say hello {name} when given a name", async () => {
+        const component = render(<PhotoViewer imgUrl=''/>);
+        await wait(() => component.getByText("Hello Mike!"));});
+});

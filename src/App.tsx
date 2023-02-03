@@ -13,6 +13,7 @@ function App() {
   return (
     <div>
       <h1>React Photo Viewer</h1>
+      <Menu />
       <PhotoViewer imgUrl={image} />
       <ImageSelector image={image} setState={setImage} />
     </div>

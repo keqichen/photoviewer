@@ -1,10 +1,10 @@
 import React from "react";  // import React (to provide access to TSX)
-import * as ReactDOM from 'react-dom';
+import { useState } from "react";
 import "./Menu.css"
 
 
 export function Menu() {
-    const [menu,setMenu] = React.useState(false);
+    const [menu,setMenu] = useState(false);
 
     return (
         <>
